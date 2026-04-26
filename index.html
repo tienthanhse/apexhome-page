@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Home - Kiến tạo không gian riêng, vững bền cùng thế hệ</title>
+    <meta name="description" content="Apex Home - Dịch vụ thiết kế kiến trúc, nội thất & thi công trọn gói uy tín. Nơi biến ý tưởng thành tổ ấm mang đậm cá tính riêng của bạn.">
+    <meta name="keywords" content="Apex Home, thiết kế kiến trúc, thiết kế nội thất, thi công trọn gói, kiến trúc Hải Phòng, nội thất Hải Phòng">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    
+    <!-- Open Graph for Facebook/Zalo -->
+    <meta property="og:title" content="Apex Home - Kiến tạo không gian riêng">
+    <meta property="og:description" content="Nơi ngôi nhà không chỉ để ở, mà còn kể câu chuyện của bạn. Đăng ký tư vấn thiết kế miễn phí ngay hôm nay.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apexhome.vn"> <!-- Placeholder URL -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config -->
+    <script src="js/tailwind-config.js"></script>
+</head>
+<body class="font-sans text-gray-300 bg-apex-darker antialiased selection:bg-apex-gold selection:text-apex-dark">
+
+    <!-- Navigation -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 glass-effect border-b border-white/5 py-4">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 relative flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-apex-gold transform group-hover:scale-105 transition-transform duration-300">
+                        <!-- Apex Home Custom Logo -->
+                        <path d="M15 45 L50 15 L85 45 V90" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M35 58 L50 43 L65 58 V90 H35 Z" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="44" y="70" width="12" height="20" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-serif font-bold text-white tracking-widest leading-none">APEX</span>
+                    <span class="text-[10px] text-apex-gold tracking-[0.3em] font-medium mt-1 uppercase">Home</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-sm font-medium text-gray-300 hover:text-apex-gold transition-colors nav-link">Về chúng tôi</a>
+                <a href="#expert" class="text-sm font-medium text-gray-300 hover:text-apex-gold transition-colors nav-link">Chuyên gia</a>
+                <a href="#benefits" class="text-sm font-medium text-gray-300 hover:text-apex-gold transition-colors nav-link">Quyền lợi</a>
+                <a href="#portfolio" class="text-sm font-medium text-gray-300 hover:text-apex-gold transition-colors nav-link">Mẫu nhà</a>
+                <a href="#completed-projects" class="text-sm font-medium text-gray-300 hover:text-apex-gold transition-colors nav-link">Khách hàng</a>
+                <a href="#contact" class="px-6 py-2.5 bg-transparent border border-apex-gold text-apex-gold hover:bg-apex-gold hover:text-apex-dark text-sm font-medium transition-all duration-300 rounded-sm">
+                    Đăng ký tư vấn
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-apex-gold focus:outline-none" aria-label="Menu">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-apex-dark border-b border-white/10 shadow-xl">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#about" class="text-gray-300 hover:text-apex-gold py-2 border-b border-white/5">Về chúng tôi</a>
+                <a href="#expert" class="text-gray-300 hover:text-apex-gold py-2 border-b border-white/5">Chuyên gia</a>
+                <a href="#benefits" class="text-gray-300 hover:text-apex-gold py-2 border-b border-white/5">Quyền lợi</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-apex-gold py-2 border-b border-white/5">Mẫu nhà</a>
+                <a href="#completed-projects" class="text-gray-300 hover:text-apex-gold py-2 border-b border-white/5">Khách hàng</a>
+                <a href="#contact" class="text-apex-gold font-medium py-2">Đăng ký tư vấn ngay &rarr;</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen min-h-[700px] flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed">
+            <div class="container mx-auto px-6 md:px-12 relative z-10 text-center mt-16">
+                <span class="text-apex-gold font-medium tracking-[0.2em] uppercase text-sm mb-6 block drop-shadow-md reveal-left">Nơi ngôi nhà không chỉ để ở, mà còn kể câu chuyện của bạn</span>
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-serif text-white font-bold leading-[1.3] md:leading-[1.3] mb-6 drop-shadow-lg reveal-right">
+                    KIẾN TẠO KHÔNG GIAN RIÊNG <br/> 
+                    <span class="text-shimmer italic inline-block mt-4 md:mt-6 pb-2">VỮNG BỀN CÙNG THẾ HỆ</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md font-light reveal-left">
+                    Bạn mơ ước một không gian sống khác biệt, nơi mọi góc nhỏ đều thấm đẫm cá tính riêng?
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal-scale">
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-apex-gold hover:bg-apex-gold-light text-apex-dark font-bold uppercase tracking-wide transition-colors duration-300 rounded-sm shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                        Từ ý tưởng thành tổ ấm
+                    </a>
+                    <a href="#about" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium backdrop-blur-sm transition-colors duration-300 rounded-sm border border-white/20">
+                        Khám phá Apex Home
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#about" class="text-white/50 hover:text-apex-gold transition-colors" aria-label="Cuộn xuống">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section (Tại sao chọn Apex Home?) -->
+        <section id="about" class="py-24 bg-apex-dark relative">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <!-- Image side -->
+                    <div class="w-full lg:w-1/2 relative reveal-left">
+                        <div class="relative z-10 img-container rounded-sm shadow-2xl border border-white/10">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Apex Home Kiến trúc hiện đại" class="w-full h-auto object-cover aspect-[4/3]">
+                        </div>
+                        <div class="absolute -bottom-8 -right-8 w-2/3 h-2/3 border-2 border-apex-gold z-0 hidden md:block"></div>
+                        
+                        <div class="absolute -left-6 -bottom-6 bg-apex-darker p-6 border border-white/10 shadow-xl z-20">
+                            <svg class="w-12 h-12 text-apex-gold mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                            <p class="text-sm text-gray-300 font-medium uppercase tracking-wider">Đối tác tin cậy</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Text side -->
+                    <div class="w-full lg:w-1/2 reveal-right">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-[1px] bg-apex-gold"></div>
+                            <span class="text-apex-gold text-sm font-semibold uppercase tracking-widest">Tại sao chọn Apex Home?</span>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-serif text-white font-bold mb-6 leading-snug">
+                            Biến ý tưởng của bạn <br> thành hiện thực
+                        </h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            <strong>APEX HOME</strong> là đối tác đồng hành tin cậy, cung cấp dịch vụ <strong>THIẾT KẾ KIẾN TRÚC - NỘI THẤT & THI CÔNG NỘI THẤT TRỌN GÓI</strong>. Từ phác thảo đầu tiên đến viên gạch cuối cùng, chúng tôi kiến tạo những công trình hội tụ:
+                        </p>
+                        <ul class="space-y-5 mb-8">
+                            <li class="flex items-start gap-4 p-4 bg-apex-darker border border-white/5 hover:border-apex-gold/30 transition-colors">
+                                <div class="w-8 h-8 rounded-full bg-apex-gold/10 flex items-center justify-center shrink-0">
+                                    <svg class="w-4 h-4 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-1">CHẤT LƯỢNG CAO</h4>
+                                    <p class="text-gray-400 text-sm">An toàn - Đúng kỹ thuật - Vượt mong đợi.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 bg-apex-darker border border-white/5 hover:border-apex-gold/30 transition-colors">
+                                <div class="w-8 h-8 rounded-full bg-apex-gold/10 flex items-center justify-center shrink-0">
+                                    <svg class="w-4 h-4 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-1">THẨM MỸ TINH TẾ</h4>
+                                    <p class="text-gray-400 text-sm">Phối màu, vật liệu, ánh sáng hài hòa.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 bg-apex-darker border border-white/5 hover:border-apex-gold/30 transition-colors">
+                                <div class="w-8 h-8 rounded-full bg-apex-gold/10 flex items-center justify-center shrink-0">
+                                    <svg class="w-4 h-4 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-1">BỀN VỮNG THEO THỜI GIAN</h4>
+                                    <p class="text-gray-400 text-sm">Giải pháp tối ưu công năng, tiết kiệm năng lượng.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <blockquote class="border-l-4 border-apex-gold pl-4 italic text-gray-300 py-2 font-quote text-xl">
+                            "Mỗi bức tường không chỉ giới hạn không gian - đó là bệ đỡ cho kỷ niệm, nơi lưu giữ niềm tự hào và hạnh phúc gia đình bạn."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expert / Engineer Section -->
+        <section id="expert" class="py-24 bg-apex-darker relative overflow-hidden border-t border-white/5">
+            <!-- Background element -->
+            <div class="absolute top-0 left-0 w-96 h-96 bg-apex-gold/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+            
+            <div class="container mx-auto px-6 md:px-12 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <!-- Image Side -->
+                    <div class="w-full lg:w-2/5 flex justify-center reveal-left">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                            <!-- Golden border rings -->
+                            <div class="absolute inset-0 rounded-full border-2 border-apex-gold/30 scale-[1.05] animate-[spin_20s_linear_infinite]"></div>
+                            <div class="absolute inset-0 rounded-full border border-apex-gold/10 scale-[1.1] animate-[spin_30s_linear_infinite_reverse]"></div>
+                            <!-- Image -->
+                            <div class="w-full h-full rounded-full overflow-hidden border-4 border-apex-dark shadow-[0_0_30px_rgba(212,175,55,0.2)] bg-apex-darker flex items-center justify-center">
+                                <img src="images/engineer.png" alt="Kỹ sư Nguyễn Tiến Hoàng Lâm" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Badge -->
+                            <div class="absolute -bottom-4 right-4 md:right-10 bg-apex-gold text-apex-darker px-6 py-2 rounded-full font-bold shadow-lg text-sm md:text-base whitespace-nowrap">
+                                Kỹ sư trưởng
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Side -->
+                    <div class="w-full lg:w-3/5 reveal-right" style="transition-delay: 100ms;">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-[1px] bg-apex-gold"></div>
+                            <span class="text-apex-gold text-sm font-semibold uppercase tracking-widest">Đội Ngũ Chuyên Gia</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-serif text-white font-bold mb-2">
+                            KS. Nguyễn Tiến Hoàng Lâm
+                        </h2>
+                        <p class="text-apex-gold mb-8 italic text-lg font-serif">Kỹ sư trưởng & Founder Apex Home</p>
+                        
+                        <div class="space-y-6 text-gray-400">
+                            <p class="leading-relaxed">
+                                Với nền tảng kiến thức vững chắc chuyên ngành <strong>Xây dựng Dân dụng & Công nghiệp</strong> tại <strong>Đại học Xây Dựng</strong>, KS. Hoàng Lâm đã tích lũy bề dày kinh nghiệm thực chiến thông qua việc trực tiếp chỉ đạo và điều hành tại các tập đoàn, tổng công ty xây dựng hàng đầu.
+                            </p>
+                            
+                            <div class="mt-8">
+                                <h3 class="text-white font-semibold text-lg mb-6 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    Kinh nghiệm công tác nổi bật
+                                </h3>
+                                
+                                <ul class="space-y-6">
+                                    <li class="flex items-start gap-4 bg-white/5 p-4 rounded-sm border border-white/5 hover:border-apex-gold/30 transition-colors">
+                                        <div class="w-10 h-10 rounded-full bg-apex-dark flex items-center justify-center shrink-0 border border-apex-gold/50 shadow-[0_0_10px_rgba(212,175,55,0.2)]">
+                                            <span class="text-apex-gold font-bold">1</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-medium text-lg mb-1">Arteco</h4>
+                                            <p class="text-sm">Chuyên gia xây dựng nhà phố đến từ Pháp. Áp dụng các tiêu chuẩn kỹ thuật khắt khe, mang đậm phong cách kiến trúc và chất lượng thi công Châu Âu.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-4 bg-white/5 p-4 rounded-sm border border-white/5 hover:border-apex-gold/30 transition-colors">
+                                        <div class="w-10 h-10 rounded-full bg-apex-dark flex items-center justify-center shrink-0 border border-apex-gold/50 shadow-[0_0_10px_rgba(212,175,55,0.2)]">
+                                            <span class="text-apex-gold font-bold">2</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-medium text-lg mb-1">Ecoba Việt Nam</h4>
+                                            <p class="text-sm">Top 10 doanh nghiệp xây dựng uy tín Việt Nam. Trực tiếp tham gia quản lý các dự án quy mô lớn, đòi hỏi khắt khe về tiến độ, kỹ thuật và quản lý chất lượng.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-4 bg-white/5 p-4 rounded-sm border border-white/5 hover:border-apex-gold/30 transition-colors">
+                                        <div class="w-10 h-10 rounded-full bg-apex-dark flex items-center justify-center shrink-0 border border-apex-gold/50 shadow-[0_0_10px_rgba(212,175,55,0.2)]">
+                                            <span class="text-apex-gold font-bold">3</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-medium text-lg mb-1">Tổng Công ty 319 - Bộ Quốc Phòng</h4>
+                                            <p class="text-sm">Rèn luyện tác phong làm việc kỷ luật thép, chỉn chu trong từng chi tiết và đặt nguyên tắc an toàn kết cấu lên hàng đầu.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <blockquote class="border-l-4 border-apex-gold pl-4 italic text-gray-300 py-2 mt-8 font-quote text-xl">
+                                "Xây nhà không chỉ là dựng lên những bức tường, mà là kiến tạo sự an tâm tuyệt đối cho khách hàng thông qua chuẩn mực kỹ thuật và cái tâm của người làm nghề."
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quyền Lợi Khách Hàng -->
+        <section id="benefits" class="py-24 bg-apex-dark relative overflow-hidden border-t border-white/5">
+            <!-- Background elements -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-apex-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            
+            <div class="container mx-auto px-6 md:px-12 relative z-10">
+                <div class="flex flex-col lg:flex-row gap-16 lg:gap-20">
+                    
+                    <!-- Left: Heading & Intro -->
+                    <div class="w-full lg:w-2/5 lg:sticky lg:top-32 lg:self-start reveal-left">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-[1px] bg-apex-gold"></div>
+                            <span class="text-apex-gold text-sm font-semibold uppercase tracking-widest">Quyền lợi khách hàng</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-serif text-white font-bold mb-6">Bạn Nhận Được Gì?</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            Khi chọn <strong class="text-white">APEX HOME</strong> làm đơn vị đồng hành tư vấn, thiết kế kiến trúc – nội thất cho ngôi nhà tương lai, bạn sẽ nhận được trọn bộ hồ sơ chuyên nghiệp.
+                        </p>
+                        <blockquote class="border-l-4 border-apex-gold pl-4 italic text-gray-300 py-2 font-quote text-xl">
+                            "Mỗi hồ sơ là một cam kết bằng chuyên môn — không chỉ bản vẽ, mà là sự an tâm tuyệt đối cho gia chủ."
+                        </blockquote>
+                        <!-- Handshake illustration -->
+                        <div class="mt-10 hidden lg:flex justify-center">
+                            <div class="relative w-48 h-48">
+                                <div class="absolute inset-0 bg-apex-gold/5 rounded-full blur-2xl"></div>
+                                <img src="https://content.presentermedia.com/content/clipart/00033000/33230/handshake_800_clr.png" alt="Cam kết đồng hành" class="relative w-full h-full object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.3)] animate-float">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Benefits Timeline -->
+                    <div class="w-full lg:w-3/5">
+                        <div class="space-y-0">
+                            <!-- Item 1 -->
+                            <div class="reveal-right flex gap-6 group" style="transition-delay: 0ms;">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-apex-gold/10 border-2 border-apex-gold/40 rounded-full flex items-center justify-center shrink-0 group-hover:bg-apex-gold/20 group-hover:border-apex-gold transition-all duration-300">
+                                        <svg class="w-5 h-5 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"></path></svg>
+                                    </div>
+                                    <div class="w-[2px] flex-1 bg-gradient-to-b from-apex-gold/30 to-transparent"></div>
+                                </div>
+                                <div class="pb-10">
+                                    <h4 class="text-2xl font-serif font-bold text-white mb-2 group-hover:text-apex-gold transition-colors">Hồ Sơ Kiến Trúc</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Phối cảnh 3D tổng thể công trình · Thiết kế mặt tiền chi tiết · Mặt bằng công năng từng tầng · Phối cảnh nội thất từng phòng theo yêu cầu.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="reveal-right flex gap-6 group" style="transition-delay: 80ms;">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-apex-gold/10 border-2 border-apex-gold/40 rounded-full flex items-center justify-center shrink-0 group-hover:bg-apex-gold/20 group-hover:border-apex-gold transition-all duration-300">
+                                        <svg class="w-5 h-5 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.049.58.025 1.193-.14 1.743"></path></svg>
+                                    </div>
+                                    <div class="w-[2px] flex-1 bg-gradient-to-b from-apex-gold/30 to-transparent"></div>
+                                </div>
+                                <div class="pb-10">
+                                    <h4 class="text-2xl font-serif font-bold text-white mb-2 group-hover:text-apex-gold transition-colors">Hồ Sơ Kết Cấu</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Bản vẽ kết cấu móng, cột, dầm, sàn · Tính toán tải trọng &amp; vật liệu · Đảm bảo an toàn kết cấu theo tiêu chuẩn TCVN.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="reveal-right flex gap-6 group" style="transition-delay: 160ms;">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-apex-gold/10 border-2 border-apex-gold/40 rounded-full flex items-center justify-center shrink-0 group-hover:bg-apex-gold/20 group-hover:border-apex-gold transition-all duration-300">
+                                        <svg class="w-5 h-5 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path></svg>
+                                    </div>
+                                    <div class="w-[2px] flex-1 bg-gradient-to-b from-apex-gold/30 to-transparent"></div>
+                                </div>
+                                <div class="pb-10">
+                                    <h4 class="text-2xl font-serif font-bold text-white mb-2 group-hover:text-apex-gold transition-colors">Hồ Sơ MEP</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Hệ thống điện động lực &amp; chiếu sáng · Hệ thống cấp thoát nước · Hệ thống điện nhẹ (mạng, camera, SmartHome).
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="reveal-right flex gap-6 group" style="transition-delay: 240ms;">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-apex-gold/10 border-2 border-apex-gold/40 rounded-full flex items-center justify-center shrink-0 group-hover:bg-apex-gold/20 group-hover:border-apex-gold transition-all duration-300">
+                                        <svg class="w-5 h-5 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </div>
+                                    <div class="w-[2px] flex-1 bg-gradient-to-b from-apex-gold/30 to-transparent"></div>
+                                </div>
+                                <div class="pb-10">
+                                    <h4 class="text-2xl font-serif font-bold text-white mb-2 group-hover:text-apex-gold transition-colors">Dự Toán Chi Phí Xây Dựng</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Bảng dự toán chi tiết từng hạng mục · Tối ưu ngân sách theo yêu cầu · Minh bạch, không phát sinh ẩn.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Item 5 -->
+                            <div class="reveal-right flex gap-6 group" style="transition-delay: 320ms;">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-apex-gold/10 border-2 border-apex-gold/40 rounded-full flex items-center justify-center shrink-0 group-hover:bg-apex-gold/20 group-hover:border-apex-gold transition-all duration-300">
+                                        <svg class="w-5 h-5 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"></path></svg>
+                                    </div>
+                                </div>
+                                <div class="pb-2">
+                                    <div class="flex items-center gap-3 mb-2 flex-wrap">
+                                        <h4 class="text-2xl font-serif font-bold text-white group-hover:text-apex-gold transition-colors">Hồ Sơ Thiết Kế Nội Thất</h4>
+                                        <span class="inline-flex items-center gap-1.5 bg-apex-gold/10 border border-apex-gold/30 px-3 py-1 rounded-full text-apex-gold text-[11px] font-semibold uppercase tracking-wider">
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            Hợp đồng riêng
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Thiết kế trọn gói không gian nội thất theo phong cách cá nhân hóa, từ phòng khách, phòng ngủ đến bếp và khu vệ sinh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consultation Images -->
+                <div class="mt-20 md:mt-24 reveal-scale">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-12 h-[1px] bg-apex-gold"></div>
+                        <span class="text-apex-gold text-sm font-semibold uppercase tracking-widest">Đồng hành cùng gia chủ</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="group relative overflow-hidden rounded-sm border border-white/10 aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
+                            <img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/594969450_122147849372912238_3927991577921500503_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=qTdokBuAYuIQ7kNvwFRjmLJ&_nc_oc=AdqcGVTWRRqCdWVYbbg5-9d2BwvaiCFXJzgfLiecJ4EJBdA53wH1pfBCaxkpaqeD3nkaOuiDyBlaU8dJ3AHYv1vg&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=Xj7XT9PmwClQNOttqVsBDA&_nc_ss=7b2a8&oh=00_Af2L9JTBBmiL-105HM_i-QZrWNW7zzM_iztI24J40r15dg&oe=69F3EE80" alt="Tư vấn thiết kế trực tiếp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-apex-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <div class="group relative overflow-hidden rounded-sm border border-white/10 aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
+                            <img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/564159997_122139362798912238_7343983246129882834_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=UNBPdqyrh2oQ7kNvwHC8j5y&_nc_oc=AdpsYmfJGImejzLlBqSa_9OHFjNnP_CZLj9IEpe3uh_cjz8z4REphJHX-utohnykVU3H7JermNFIWUy4pFoB0e5n&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=YWjIeiB8-cli2APzXWW11g&_nc_ss=7b2a8&oh=00_Af10NDUZx2i4RZpa5WQ8-11X0XJoJvI3kJnXHAs1xsyh9w&oe=69F3D3AC" alt="Trao đổi hồ sơ kỹ thuật" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-apex-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <div class="group relative overflow-hidden rounded-sm border border-white/10 aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
+                            <img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/561514667_122139701906912238_7124574427766961588_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=8XZ68qaJ-G0Q7kNvwFSC3mQ&_nc_oc=AdojADUD1-sfMf16PnGbHt0J2VWVpzE2i7psEE5-0_axumeVGclFsXmVJp6jpOwGjZheJN73DEYGC8G8xFsFzQho&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=sc5z3CrTObdX5UHA3dGnFw&_nc_ss=7b2a8&oh=00_Af3zj1JgfWl19WTbpzsbz4V81nmaJm6SyKNhFbXhzqIkdQ&oe=69F3C3C8" alt="Lắng nghe ý kiến khách hàng" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-apex-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <!-- New Row -->
+                        <div class="group relative overflow-hidden rounded-sm border border-white/10 aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
+                            <img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/580516488_122143930706912238_7504831764787611047_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=QXJcdVy-TbEQ7kNvwGCfjSr&_nc_oc=AdrM22mVtyfDkQtZ_fnLGA5IyteD1VXghr8gyeGwWDoMZuEqq_JWXbXLRxRXm1Dox0X874dgkBDLr2rAMFCfEd4T&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=xz5ov8KpKnlbPAS-AHnhCA&_nc_ss=7b2a8&oh=00_Af36slWyeRQ-etUkTzch-DTTzFbkhxmoREba1_3FshvYZw&oe=69F3ED5E" alt="Tư vấn giải pháp kiến trúc" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-apex-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <div class="group relative overflow-hidden rounded-sm border border-white/10 aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
+                            <img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/557963674_122138442278912238_2274375993987306106_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=Q13wueWvo3kQ7kNvwGs58-2&_nc_oc=AdrscYWgdwbZtY9Zj77hEdptWNVKvV1ccBFJJ7fihnbOoVLgSOTKlVC9mWgElW0hcMvd6hA565srj-Vevy3iGNj6&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=dkFIXJrDJKUqzuqbWCQ13w&_nc_ss=7b2a8&oh=00_Af0lu-QaE_P56oPJqQvROaZyTTmedIKzubQsz9tGiwRE7g&oe=69F3E91A" alt="Khảo sát hiện trạng" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-apex-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <div class="group relative overflow-hidden rounded-sm border border-white/10 aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
+                            <img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/594057621_122147355344912238_2026139718987266367_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=K2JM8RnHx94Q7kNvwEd73YL&_nc_oc=AdoSjMLEDZOklFScRY5937XkZXAlv96pS05XdeKAWBHrDRwzMQpK0oOhhyhpJzCbP_0zXRV89RHLrKD8Hz7XaXOO&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=kGUsifFtYQY3vZIVlIlI8w&_nc_ss=7b2a8&oh=00_Af0eBxABuu7bBz-84metxkqHdcj3eNN1LYV0kmH8aH87Qg&oe=69F3D0DC" alt="Hoàn thiện hồ sơ" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-apex-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 bg-apex-darker relative">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-scale">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <div class="w-8 h-[1px] bg-apex-gold"></div>
+                        <span class="text-apex-gold text-sm font-semibold uppercase tracking-widest">Dự án tham khảo</span>
+                        <div class="w-8 h-[1px] bg-apex-gold"></div>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-serif text-white font-bold mb-6">Đa Dạng Phong Cách</h2>
+                    <p class="text-gray-400 text-lg">
+                        Khám phá các mẫu thiết kế nhà phố, biệt thự, nhà mái Nhật mang đậm dấu ấn kiến trúc hiện đại và tinh tế.
+                    </p>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Item 1: Nhà mái Nhật -->
+                    <div class="group relative overflow-hidden rounded-sm aspect-[4/5] cursor-pointer reveal-left">
+                        <img src="https://mashome.com.vn/wp-content/uploads/2024/03/z5216900008650_8f4017fe601142862974a590b7c6b809.jpg" alt="Nhà mái Nhật hiện đại" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-apex-dark via-apex-dark/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <span class="text-apex-gold text-xs uppercase tracking-wider font-semibold mb-2 block">Kiến trúc Á Đông</span>
+                            <h4 class="text-2xl font-serif text-white font-bold">Nhà Mái Nhật Hiện Đại</h4>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Nhà Phố / Nhà Ống -->
+                    <div class="group relative overflow-hidden rounded-sm aspect-[4/5] cursor-pointer reveal" style="transition-delay: 100ms;">
+                        <img src="https://xhomesg.com.vn/wp-content/uploads/2024/08/mau-thiet-ke-nha-ong-4-tang-phong-cach-hien-dai-1-Xhome-Sai-Gon.jpg" alt="Nhà phố hiện đại" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-apex-dark via-apex-dark/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <span class="text-apex-gold text-xs uppercase tracking-wider font-semibold mb-2 block">Tối ưu Không gian</span>
+                            <h4 class="text-2xl font-serif text-white font-bold">Nhà Phố / Nhà Ống</h4>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Biệt Thự -->
+                    <div class="group relative overflow-hidden rounded-sm aspect-[4/5] cursor-pointer reveal-right" style="transition-delay: 200ms;">
+                        <img src="https://static-images.vnncdn.net/files/publish/2023/2/13/nha-vuon-1194.jpg?width=0&s=jHe8vRT_Five8UlExvA0rA" alt="Biệt thự sang trọng" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-apex-dark via-apex-dark/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <span class="text-apex-gold text-xs uppercase tracking-wider font-semibold mb-2 block">Không gian Mở</span>
+                            <h4 class="text-2xl font-serif text-white font-bold">Biệt Thự Vườn</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Completed Projects Marquee Section -->
+        <section id="completed-projects" class="py-24 bg-apex-darker relative overflow-hidden border-t border-white/5">
+            <div class="container mx-auto px-6 md:px-12 mb-12">
+                <div class="text-center max-w-3xl mx-auto reveal-scale">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <div class="w-8 h-[1px] bg-apex-gold"></div>
+                        <span class="text-apex-gold text-sm font-semibold uppercase tracking-widest">Khách hàng tin tưởng</span>
+                        <div class="w-8 h-[1px] bg-apex-gold"></div>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-serif text-white font-bold mb-6">Hợp Đồng Ký Kết</h2>
+                    <p class="text-gray-400 text-lg">
+                        Sự tín nhiệm của khách hàng là minh chứng rõ nét nhất cho uy tín và chất lượng dịch vụ mà Apex Home cam kết mang lại.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Marquee Container -->
+            <div class="marquee-container reveal-left" style="transition-delay: 100ms;">
+                <div class="marquee-track">
+                    <!-- Original 10 items -->
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/520865436_122120190872912238_3448561039546055680_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=RR8XcbXcGMIQ7kNvwGFzzbo&_nc_oc=AdpDf0gunGFyR1blKYwlofzvBr4lfoHCX0U7-2WcQpL930tA-xlTH4Ts-2IUUY48N8dmZQr14ID7sWU2WqYKoq2j&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=hiWn_4xvvK28BOnX7SPbeA&_nc_ss=7b2a8&oh=00_Af0gAhzML2pLBMDovghIML5ChHT0fvK7VjULe7rMme-GuQ&oe=69F3B6D5" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/561672855_122139362810912238_8591832505826630035_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=hS1JUbQe9fkQ7kNvwElEucm&_nc_oc=AdowzWS4kn7cJlWSw6lcV2QA_DGPLBoUKEGJStmwY0wEDQpbirNMgbnVb3jpSPuDVFw0A06DNYpXFiksKQiUup32&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=NP7iT7zAvvdh2Dlxnja6pQ&_nc_ss=7b2a8&oh=00_Af1s4HZf_dOR-YxdRKRg_5DR-Q58E_GDmFhxTUxoBXMlqQ&oe=69F39B2C" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/569394531_122141108324912238_1546639858038497292_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=I5Ia35XqLBgQ7kNvwERHh-y&_nc_oc=AdpOJ4LI-khII1JShhz7Kn9uYDXWBcJ8VCa1xLRTmcJHjztJ3kwp2owMANhx4u54OSKeW6kHeWJYcjvngDXcRk25&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=wtgjyIyJYZ2pWT5CWcxhmw&_nc_ss=7b2a8&oh=00_Af2pyiMO48Undej4kqyIIcbMLex20ulgy2y-wKW2fLirKw&oe=69F3C18F" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/608542139_122152657280912238_7200796576637596431_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=XQ8BFyNWYZsQ7kNvwGVQiP0&_nc_oc=AdodIaSX_61wIzSAFgm-RXybTteXLL_0sMt7aVH2gfof_LQOj6JjcrWj9fCFcSYjY829vOaOmGBoOKYm9OXq4Uzs&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=QSu5SPqKRfbEIYaFGexrhg&_nc_ss=7b2a8&oh=00_Af04wk-TdHvI-eAVQ27v3jOlv7YaWe_9PPv8qAuvtWfF2Q&oe=69F3BF42" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/615357036_122154070232912238_9216213442295758150_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=fkXra1CxgbQQ7kNvwEAqnSY&_nc_oc=AdqxODu7RYJDBsiLuoCdniysf4RNzCoGYY-6ncwP0F_3raHidu76OatFwv4BfRQcRRrNnj0f3iNPUVv2_OEDgd3P&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=rH27FGNs23QQduGZYQxkcg&_nc_ss=7b2a8&oh=00_Af1R4ImbScZGfBHRzwEglvXQwvcjf1gkGlCAENL1JpJU6w&oe=69F39625" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/615763191_122154469946912238_384582023412119590_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_ohc=_tgobZU51poQ7kNvwExNLcA&_nc_oc=AdoQnCRknYoVEpbnBHN7GVjKXT0qUJAS2iZ1fi6pc7PfglyGibFiqiwaxOxwOLlyd2Lf3Va-BqEHwm-pLwg6Vzmk&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=GLlXPzKtOXFKNpOp6gcoZw&_nc_ss=7b2a8&oh=00_Af3r4j4S8bIVD_IJYs5hY0VqH-pz8D2O3DpU1_4z8uwAaw&oe=69F3C31C" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/619285499_122156009504912238_4697555527362239525_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=WuAPnzQfkuEQ7kNvwGccrA5&_nc_oc=AdqOC7SQqn3M6LLHglP8NqtqK9wByoLlMr_ficFT_2Le33W7KbCSaz4qvgRzCgJX5ZmxRrOhx2YPfz1FDTd4bP29&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=vAolFj7_fELFx2Je0A6r8Q&_nc_ss=7b2a8&oh=00_Af3LDKrOSbKpsQO1WgqQZrKsu0ufbbDmGFMbGowUSgNShA&oe=69F396F8" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/646464478_122160534056912238_2745367514074489406_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=rpyAnrO1zcAQ7kNvwEch-wN&_nc_oc=AdrKhXZG1p_OhgBXjsWDoZRdz-yNp8yjnnxSBqEGUwKQBwNe3NYzOBsn48EtIIPJwX6IZqyagR4H8o3lHhVPmJ3R&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=7coFT5Orwn3A-hTztcoC5g&_nc_ss=7b2a8&oh=00_Af3SUqDwelOZUOtfU44jqSX7fTe-DZfXBCq1mZ70AnRYkg&oe=69F3C94C" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/660026148_122164299428912238_9202271513813769571_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=f8MNf2LQMtcQ7kNvwFaLndq&_nc_oc=Adprc1F6w4W320194mF3jlKE1KhvGOqWu7RfJYkGwixdGmgjsuNxgGNyTqnW2wZeT1D9SGkt-ujp6eQYN1_I_stf&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=tSOFFIe7ldgrsjtdLlDwzA&_nc_ss=7b2a8&oh=00_Af2Q2FnHLbPtkQYksjD2oY4TU-8IGfQ1ctrHO4vRi1ONNg&oe=69F3B687" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/659058440_122164299548912238_8432851852357027682_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=rlE_7JEFScEQ7kNvwGV5wRf&_nc_oc=Adr8KppsfPgfGiydeRC8HpCAusNON3j1seg0Xx6wEMIwln9vuTudLyRh3Lz1tnac5Q6qElcMqUMTWHGB94hudwJB&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=8odW0cfHm4hOCcsEQ9N5pA&_nc_ss=7b2a8&oh=00_Af1czygA5Z48QThDQO0dIQXs0GvRPKOJEm0t5ONaJZiRsg&oe=69F3A324" alt="Dự án bàn giao" loading="lazy"></div>
+                    
+                    <!-- Duplicated 10 items for seamless loop -->
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/520865436_122120190872912238_3448561039546055680_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=RR8XcbXcGMIQ7kNvwGFzzbo&_nc_oc=AdpDf0gunGFyR1blKYwlofzvBr4lfoHCX0U7-2WcQpL930tA-xlTH4Ts-2IUUY48N8dmZQr14ID7sWU2WqYKoq2j&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=hiWn_4xvvK28BOnX7SPbeA&_nc_ss=7b2a8&oh=00_Af0gAhzML2pLBMDovghIML5ChHT0fvK7VjULe7rMme-GuQ&oe=69F3B6D5" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/561672855_122139362810912238_8591832505826630035_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=hS1JUbQe9fkQ7kNvwElEucm&_nc_oc=AdowzWS4kn7cJlWSw6lcV2QA_DGPLBoUKEGJStmwY0wEDQpbirNMgbnVb3jpSPuDVFw0A06DNYpXFiksKQiUup32&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=NP7iT7zAvvdh2Dlxnja6pQ&_nc_ss=7b2a8&oh=00_Af1s4HZf_dOR-YxdRKRg_5DR-Q58E_GDmFhxTUxoBXMlqQ&oe=69F39B2C" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/569394531_122141108324912238_1546639858038497292_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=I5Ia35XqLBgQ7kNvwERHh-y&_nc_oc=AdpOJ4LI-khII1JShhz7Kn9uYDXWBcJ8VCa1xLRTmcJHjztJ3kwp2owMANhx4u54OSKeW6kHeWJYcjvngDXcRk25&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=wtgjyIyJYZ2pWT5CWcxhmw&_nc_ss=7b2a8&oh=00_Af2pyiMO48Undej4kqyIIcbMLex20ulgy2y-wKW2fLirKw&oe=69F3C18F" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/608542139_122152657280912238_7200796576637596431_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=XQ8BFyNWYZsQ7kNvwGVQiP0&_nc_oc=AdodIaSX_61wIzSAFgm-RXybTteXLL_0sMt7aVH2gfof_LQOj6JjcrWj9fCFcSYjY829vOaOmGBoOKYm9OXq4Uzs&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=QSu5SPqKRfbEIYaFGexrhg&_nc_ss=7b2a8&oh=00_Af04wk-TdHvI-eAVQ27v3jOlv7YaWe_9PPv8qAuvtWfF2Q&oe=69F3BF42" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/615357036_122154070232912238_9216213442295758150_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=fkXra1CxgbQQ7kNvwEAqnSY&_nc_oc=AdqxODu7RYJDBsiLuoCdniysf4RNzCoGYY-6ncwP0F_3raHidu76OatFwv4BfRQcRRrNnj0f3iNPUVv2_OEDgd3P&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=rH27FGNs23QQduGZYQxkcg&_nc_ss=7b2a8&oh=00_Af1R4ImbScZGfBHRzwEglvXQwvcjf1gkGlCAENL1JpJU6w&oe=69F39625" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/615763191_122154469946912238_384582023412119590_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_ohc=_tgobZU51poQ7kNvwExNLcA&_nc_oc=AdoQnCRknYoVEpbnBHN7GVjKXT0qUJAS2iZ1fi6pc7PfglyGibFiqiwaxOxwOLlyd2Lf3Va-BqEHwm-pLwg6Vzmk&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=GLlXPzKtOXFKNpOp6gcoZw&_nc_ss=7b2a8&oh=00_Af3r4j4S8bIVD_IJYs5hY0VqH-pz8D2O3DpU1_4z8uwAaw&oe=69F3C31C" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/619285499_122156009504912238_4697555527362239525_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=WuAPnzQfkuEQ7kNvwGccrA5&_nc_oc=AdqOC7SQqn3M6LLHglP8NqtqK9wByoLlMr_ficFT_2Le33W7KbCSaz4qvgRzCgJX5ZmxRrOhx2YPfz1FDTd4bP29&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=vAolFj7_fELFx2Je0A6r8Q&_nc_ss=7b2a8&oh=00_Af3LDKrOSbKpsQO1WgqQZrKsu0ufbbDmGFMbGowUSgNShA&oe=69F396F8" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/646464478_122160534056912238_2745367514074489406_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=rpyAnrO1zcAQ7kNvwEch-wN&_nc_oc=AdrKhXZG1p_OhgBXjsWDoZRdz-yNp8yjnnxSBqEGUwKQBwNe3NYzOBsn48EtIIPJwX6IZqyagR4H8o3lHhVPmJ3R&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=7coFT5Orwn3A-hTztcoC5g&_nc_ss=7b2a8&oh=00_Af3SUqDwelOZUOtfU44jqSX7fTe-DZfXBCq1mZ70AnRYkg&oe=69F3C94C" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/660026148_122164299428912238_9202271513813769571_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=f8MNf2LQMtcQ7kNvwFaLndq&_nc_oc=Adprc1F6w4W320194mF3jlKE1KhvGOqWu7RfJYkGwixdGmgjsuNxgGNyTqnW2wZeT1D9SGkt-ujp6eQYN1_I_stf&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=tSOFFIe7ldgrsjtdLlDwzA&_nc_ss=7b2a8&oh=00_Af2Q2FnHLbPtkQYksjD2oY4TU-8IGfQ1ctrHO4vRi1ONNg&oe=69F3B687" alt="Dự án bàn giao" loading="lazy"></div>
+                    <div class="marquee-item"><img src="https://scontent.fhph4-1.fna.fbcdn.net/v/t39.30808-6/659058440_122164299548912238_8432851852357027682_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=rlE_7JEFScEQ7kNvwGV5wRf&_nc_oc=Adr8KppsfPgfGiydeRC8HpCAusNON3j1seg0Xx6wEMIwln9vuTudLyRh3Lz1tnac5Q6qElcMqUMTWHGB94hudwJB&_nc_zt=23&_nc_ht=scontent.fhph4-1.fna&_nc_gid=8odW0cfHm4hOCcsEQ9N5pA&_nc_ss=7b2a8&oh=00_Af1czygA5Z48QThDQO0dIQXs0GvRPKOJEm0t5ONaJZiRsg&oe=69F3A324" alt="Dự án bàn giao" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Promise Section -->
+        <section class="py-20 bg-apex-gold text-apex-darker text-center px-6 md:px-12 relative overflow-hidden">
+            <!-- Decorative SVG background -->
+            <div class="absolute inset-0 opacity-5 pointer-events-none flex justify-center items-center">
+                <svg viewBox="0 0 100 100" class="w-full max-w-4xl h-auto text-apex-darker fill-current">
+                    <path d="M15 45 L50 15 L85 45 V90" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            
+            <div class="container mx-auto max-w-4xl relative z-10 reveal-scale">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">LỜI HỨA MỞ CỬA TƯƠNG LAI</h2>
+                <p class="text-xl md:text-2xl font-serif italic font-medium leading-relaxed mb-10 text-apex-darker/80">
+                    "Dù bạn đang ấp ủ ý tưởng cho căn hộ 50m² hay biệt thự 500m², APEX Home sẵn sàng biến giấc mơ thành ngôi nhà mang tên BẠN - nơi tiếng cười con trẻ, bữa cơm gia đình và khoảnh khắc tự hào được lưu giữ trọn đời."
+                </p>
+            </div>
+        </section>
+
+        <!-- Call to Action / Contact Section -->
+        <section id="contact" class="py-0 relative">
+            <div class="flex flex-col lg:flex-row min-h-[600px]">
+                <!-- Info Side (Image Background) -->
+                <div class="w-full lg:w-1/2 bg-contact-pattern bg-cover bg-center flex flex-col justify-center p-10 md:p-16 lg:p-24 relative">
+                    <div class="relative z-10 reveal-left">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 relative flex items-center justify-center">
+                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-apex-gold">
+                                    <path d="M15 45 L50 15 L85 45 V90" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M35 58 L50 43 L65 58 V90 H35 Z" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="44" y="70" width="12" height="20" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <span class="text-2xl font-serif font-bold text-white tracking-widest">APEX HOME</span>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-serif text-white font-bold mb-4">Khởi công tương lai<br>Gửi trọn niềm tin.</h2>
+                        <p class="text-gray-300 mb-10 max-w-md">Liên hệ với chuyên gia của Apex Home để nhận tư vấn phác thảo sơ bộ và báo giá dự toán.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-full text-apex-gold shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Hotline tư vấn</p>
+                                    <a href="tel:0365716687" class="text-lg text-white font-medium hover:text-apex-gold transition-colors">0365.716.687</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-full text-apex-gold shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Email</p>
+                                    <a href="mailto:Apexhome34@gmail.com" class="text-lg text-white font-medium hover:text-apex-gold transition-colors">Apexhome34@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="w-full lg:w-1/2 bg-apex-dark p-10 md:p-16 lg:p-24 flex items-center justify-center">
+                    <div class="w-full max-w-lg reveal-right">
+                        <div class="mb-8">
+                            <span class="text-apex-gold text-sm font-semibold uppercase tracking-widest block mb-2">Đăng ký ngay hôm nay</span>
+                            <h3 class="text-2xl font-serif text-white font-bold mb-2">ĐĂNG KÝ TƯ VẤN 0Đ</h3>
+                            <p class="text-gray-400">NHẬN NGAY BỘ THIẾT KẾ Ý TƯỞNG CÁ NHÂN HÓA!</p>
+                        </div>
+                        
+                        <form id="contact-form" action="https://formspree.io/f/xvzdylbv" method="POST" class="space-y-6">
+                            <!-- Bạn thay YOUR_FORM_ID bằng mã lấy từ Formspree.io -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Họ và tên *</label>
+                                    <input type="text" id="name" name="name" class="w-full bg-apex-darker border border-white/10 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-apex-gold transition-colors invalid:focus:border-red-500/50" placeholder="Nguyễn Văn A" required>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-400 mb-2">Số điện thoại *</label>
+                                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}" title="Vui lòng nhập số điện thoại hợp lệ (10-11 số)" class="w-full bg-apex-darker border border-white/10 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-apex-gold transition-colors invalid:focus:border-red-500/50" placeholder="0365..." required>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-400 mb-2">Nhu cầu của bạn</label>
+                                <select id="service" name="service" class="w-full bg-apex-darker border border-white/10 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-apex-gold transition-colors appearance-none">
+                                    <option value="Thiết kế Kiến trúc">Thiết kế Kiến trúc</option>
+                                    <option value="Thiết kế Nội thất">Thiết kế Nội thất</option>
+                                    <option value="Thi công Trọn gói">Thi công Trọn gói</option>
+                                    <option value="Tư vấn khác">Tư vấn khác</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Nội dung chi tiết (tùy chọn)</label>
+                                <textarea id="message" name="message" rows="4" class="w-full bg-apex-darker border border-white/10 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-apex-gold transition-colors resize-none" placeholder="Chia sẻ về diện tích, phong cách mong muốn..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full py-4 bg-apex-gold hover:bg-apex-gold-light text-apex-dark font-bold uppercase tracking-wider transition-colors duration-300 rounded-sm shadow-[0_4px_14px_0_rgba(212,175,55,0.39)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.23)] disabled:opacity-70 disabled:cursor-not-allowed">
+                                Gửi yêu cầu tư vấn
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-apex-darker border-t border-white/5 pt-16 pb-8">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex items-center gap-3 mb-6 group">
+                        <div class="w-10 h-10 relative flex items-center justify-center">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-apex-gold transform group-hover:scale-105 transition-transform duration-300">
+                                <path d="M15 45 L50 15 L85 45 V90" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M35 58 L50 43 L65 58 V90 H35 Z" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="44" y="70" width="12" height="20" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xl font-serif font-bold text-white tracking-widest leading-none">APEX</span>
+                            <span class="text-[9px] text-apex-gold tracking-[0.3em] font-medium mt-1">HOME</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Nơi ngôi nhà không chỉ để ở, mà còn kể câu chuyện của bạn. Biến ý tưởng thành tổ ấm vững bền cùng thế hệ.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61577367148358" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/5 flex items-center justify-center rounded-sm text-gray-400 hover:text-apex-gold hover:bg-white/10 transition-all shadow-sm" aria-label="Facebook Fanpage">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="lg:col-span-1">
+                    <h4 class="text-white font-serif font-bold mb-6">Liên kết nhanh</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-apex-gold text-sm transition-colors">Về chúng tôi</a></li>
+                        <li><a href="#philosophy" class="text-gray-400 hover:text-apex-gold text-sm transition-colors">Triết lý & Sứ mệnh</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-apex-gold text-sm transition-colors">Giá trị cốt lõi</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-apex-gold text-sm transition-colors">Đăng ký tư vấn</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="lg:col-span-1">
+                    <h4 class="text-white font-serif font-bold mb-6">Dịch vụ</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-apex-gold text-sm transition-colors">Thiết kế Kiến trúc</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-apex-gold text-sm transition-colors">Thiết kế Nội thất</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-apex-gold text-sm transition-colors">Thi công Nội thất trọn gói</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-apex-gold text-sm transition-colors">Cá nhân hóa không gian</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="lg:col-span-1">
+                    <h4 class="text-white font-serif font-bold mb-6">VP Tư vấn & Liên hệ</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm text-gray-400">
+                            <svg class="w-5 h-5 text-apex-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Đội 4, thôn Nghi Khê, xã Tân Kỳ, TP. Hải Phòng.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-gray-400">
+                            <svg class="w-5 h-5 text-apex-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Thôn Đông Phong, xã Đại Sơn, TP. Hải Phòng.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-gray-400">
+                            <svg class="w-5 h-5 text-apex-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <a href="mailto:Apexhome34@gmail.com" class="hover:text-apex-gold transition-colors">Apexhome34@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-gray-400">
+                            <svg class="w-5 h-5 text-apex-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <a href="tel:0365716687" class="hover:text-apex-gold transition-colors font-medium text-white">0365.716.687</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-500">&copy; 2024 Apex Home. All rights reserved. Khởi công tương lai - Gửi trọn niềm tin.</p>
+                <div class="flex space-x-4">
+                    <span class="text-xs text-gray-500">#APEXHOME #KienTaoKhongGianRieng #NhaLaKyUc</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Phone Button -->
+    <a href="tel:0365716687" class="fixed bottom-[5.5rem] right-6 md:bottom-[6.5rem] md:right-8 z-[90] group flex items-center justify-center">
+        <!-- Ping effect with delay -->
+        <div class="absolute inset-0 rounded-full bg-[#28a745] opacity-40 animate-ping" style="animation-delay: 0.5s;"></div>
+        <!-- Button -->
+        <div class="relative flex items-center justify-center w-14 h-14 bg-[#28a745] text-white rounded-full shadow-[0_4px_15px_rgba(40,167,69,0.4)] border-2 border-white/20 transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+        </div>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white text-apex-dark text-sm font-bold px-3 py-1.5 rounded-sm shadow-xl whitespace-nowrap opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:-right-1.5 before:border-4 before:border-transparent before:border-l-white">
+            Gọi Hotline
+        </span>
+    </a>
+
+    <!-- Floating Zalo Button -->
+    <a href="https://zalo.me/0365716687" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[90] group flex items-center justify-center">
+        <!-- Ping effect -->
+        <div class="absolute inset-0 rounded-full bg-[#0068ff] opacity-40 animate-ping"></div>
+        <!-- Button -->
+        <div class="relative flex items-center justify-center w-14 h-14 bg-[#0068ff] text-white rounded-full shadow-[0_4px_15px_rgba(0,104,255,0.4)] border-2 border-white/20 transition-transform duration-300 group-hover:scale-110">
+            <span class="font-bold text-[15px] tracking-wide font-sans">Zalo</span>
+        </div>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white text-apex-dark text-sm font-bold px-3 py-1.5 rounded-sm shadow-xl whitespace-nowrap opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:-right-1.5 before:border-4 before:border-transparent before:border-l-white">
+            Chat với Chuyên gia
+        </span>
+    </a>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-apex-darker/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-apex-dark border border-apex-gold/30 p-8 rounded-sm shadow-2xl max-w-md w-full mx-4 transform scale-95 transition-transform duration-300 text-center">
+            <div class="w-16 h-16 bg-apex-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-apex-gold/50">
+                <svg class="w-8 h-8 text-apex-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h3 class="text-2xl font-serif text-white font-bold mb-2">Đăng ký thành công!</h3>
+            <p class="text-gray-400 mb-8">Cảm ơn bạn đã tin tưởng Apex Home. Chuyên gia của chúng tôi sẽ liên hệ với bạn qua số điện thoại vừa cung cấp trong thời gian sớm nhất.</p>
+            <button id="close-modal-btn" class="px-8 py-3 bg-apex-gold hover:bg-apex-gold-light text-apex-dark font-bold uppercase tracking-wider transition-colors duration-300 rounded-sm w-full">
+                Đóng
+            </button>
+        </div>
+    </div>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
